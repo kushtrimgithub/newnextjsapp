@@ -25,3 +25,46 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+.column {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+  margin-bottom: 120px;
+}
+
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
