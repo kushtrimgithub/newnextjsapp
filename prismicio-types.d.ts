@@ -4,6 +4,34 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for cta documents
+ */
+interface CtaDocumentData {
+  /**
+   * headline field in *cta*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+}
+
+/**
+ * cta document from Prismic
+ *
+ * - **API ID**: `cta`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CtaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<CtaDocumentData>, "cta", Lang>;
+
 type HomeDocumentDataSlicesSlice = never;
 
 /**
@@ -65,7 +93,7 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-export type AllDocumentTypes = HomeDocument;
+export type AllDocumentTypes = CtaDocument | HomeDocument;
 
 /**
  * Default variation for Settings Slice
@@ -107,6 +135,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CtaDocument,
+      CtaDocumentData,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
