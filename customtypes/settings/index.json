@@ -1,0 +1,18 @@
+{
+  "id": "settings",
+  "label": "settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "headline": {
+        "type": "Text",
+        "config": {
+          "label": "headline",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
