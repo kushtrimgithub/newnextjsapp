@@ -67,6 +67,36 @@ export type HomeDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = HomeDocument;
 
+/**
+ * Default variation for Settings Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SettingsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Settings*
+ */
+type SettingsSliceVariation = SettingsSliceDefault;
+
+/**
+ * Settings Shared Slice
+ *
+ * - **API ID**: `settings`
+ * - **Description**: Settings
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SettingsSlice = prismic.SharedSlice<
+  "settings",
+  SettingsSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -81,6 +111,9 @@ declare module "@prismicio/client" {
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
       AllDocumentTypes,
+      SettingsSlice,
+      SettingsSliceVariation,
+      SettingsSliceDefault,
     };
   }
 }

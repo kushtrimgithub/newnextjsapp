@@ -1,0 +1,16 @@
+{
+  "id": "settings",
+  "type": "SharedSlice",
+  "name": "Settings",
+  "description": "Settings",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}
