@@ -3,6 +3,5 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  call_to_action: dynamic(() => import("./CallToAction")),
   formular: dynamic(() => import("./Formular")),
 };

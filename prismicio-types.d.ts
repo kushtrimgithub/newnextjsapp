@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutDocumentDataSlicesSlice = CallToActionSlice | FormularSlice;
+type AboutDocumentDataSlicesSlice = FormularSlice;
 
 /**
  * Content for About documents
@@ -166,161 +166,6 @@ export type StartpageDocument<Lang extends string = string> =
 export type AllDocumentTypes = AboutDocument | StartpageDocument;
 
 /**
- * Primary content in *CallToAction → Primary*
- */
-export interface CallToActionSliceDefaultPrimary {
-  /**
-   * Image field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * title field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * paragraph field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.paragraph
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  paragraph: prismic.RichTextField;
-
-  /**
-   * buttonLink field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Redirect URL for CTA button
-   * - **API ID Path**: call_to_action.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
-   * buttonLabel field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Label for CTA button
-   * - **API ID Path**: call_to_action.primary.buttonLabel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  buttonLabel: prismic.KeyTextField;
-}
-
-/**
- * Default variation for CallToAction Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CallToActionSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CallToActionSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *CallToAction → Primary*
- */
-export interface CallToActionSliceAlignLeftPrimary {
-  /**
-   * Image field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * title field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * paragraph field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: call_to_action.primary.paragraph
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  paragraph: prismic.RichTextField;
-
-  /**
-   * buttonLink field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Redirect URL for CTA button
-   * - **API ID Path**: call_to_action.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
-   * buttonLabel field in *CallToAction → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Label for CTA button
-   * - **API ID Path**: call_to_action.primary.buttonLabel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  buttonLabel: prismic.KeyTextField;
-}
-
-/**
- * AlignLeft variation for CallToAction Slice
- *
- * - **API ID**: `alignLeft`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CallToActionSliceAlignLeft = prismic.SharedSliceVariation<
-  "alignLeft",
-  Simplify<CallToActionSliceAlignLeftPrimary>,
-  never
->;
-
-/**
- * Slice variation for *CallToAction*
- */
-type CallToActionSliceVariation =
-  | CallToActionSliceDefault
-  | CallToActionSliceAlignLeft;
-
-/**
- * CallToAction Shared Slice
- *
- * - **API ID**: `call_to_action`
- * - **Description**: CallToAction
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CallToActionSlice = prismic.SharedSlice<
-  "call_to_action",
-  CallToActionSliceVariation
->;
-
-/**
  * Primary content in *Formular → Primary*
  */
 export interface FormularSliceDefaultPrimary {
@@ -392,12 +237,6 @@ declare module "@prismicio/client" {
       StartpageDocumentData,
       StartpageDocumentDataSlicesSlice,
       AllDocumentTypes,
-      CallToActionSlice,
-      CallToActionSliceDefaultPrimary,
-      CallToActionSliceAlignLeftPrimary,
-      CallToActionSliceVariation,
-      CallToActionSliceDefault,
-      CallToActionSliceAlignLeft,
       FormularSlice,
       FormularSliceDefaultPrimary,
       FormularSliceVariation,
