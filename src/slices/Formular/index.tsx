@@ -5,14 +5,10 @@ import { PrismicRichText } from '@prismicio/react';
 
 import { createClient } from "@/prismicio";
 
-/**
- * Props for `Formular`.
- */
+
 export type FormularProps = SliceComponentProps<Content.FormularSlice>;
 
-/**
- * Component for "Formular" Slices.
- */
+
 const Formular = ({ slice }: FormularProps): JSX.Element => {
   return (
     <section
