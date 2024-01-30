@@ -5,8 +5,6 @@ import { createClient } from "@/prismicio";
 
 export default async function Footer() {
   const client = createClient();
-  const call = await client.getSingle("cta");
-  const settings = await client.getSingle("settings");
 
   return (
     <nav className="navbar">

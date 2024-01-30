@@ -1,16 +1,34 @@
 {
-  "id": "home",
-  "label": "Home",
+  "id": "startpage",
+  "label": "Startpage",
   "format": "page",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
+      "headline": {
+        "type": "Text",
+        "config": {
+          "label": "Headline",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "formular": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      },
+      "subline": {
+        "type": "Text",
+        "config": {
+          "label": "Subline",
+          "placeholder": ""
         }
       }
     },
