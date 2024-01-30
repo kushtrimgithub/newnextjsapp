@@ -27,8 +27,7 @@ export async function generateMetadata({
     .catch(() => notFound());
 
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+
   };
 }
 
