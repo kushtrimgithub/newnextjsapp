@@ -4,4 +4,5 @@ import dynamic from "next/dynamic";
 
 export const components = {
   formular: dynamic(() => import("./Formular")),
+  rich_text: dynamic(() => import("./RichText")),
 };

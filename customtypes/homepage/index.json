@@ -1,18 +1,11 @@
 {
-  "id": "startpage",
-  "label": "Startpage",
+  "id": "homepage",
+  "label": "Homepage",
   "format": "page",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "headline": {
-        "type": "Text",
-        "config": {
-          "label": "Headline",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -24,10 +17,10 @@
           }
         }
       },
-      "subline": {
+      "headline": {
         "type": "Text",
         "config": {
-          "label": "Subline",
+          "label": "Headline",
           "placeholder": ""
         }
       }
