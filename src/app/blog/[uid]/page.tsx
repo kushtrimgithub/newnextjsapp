@@ -26,7 +26,10 @@ export async function generateMetadata({
     .getByUID("blog_post", params.uid)
     .catch(() => notFound());
 
-
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
 }
 
 
