@@ -1,9 +1,7 @@
 import Link from 'next/link'
-import { Content } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-import { PrismicRichText } from '@prismicio/react';
-
-import { createClient } from "@/prismicio";
+import { type Content, isFilled } from "@prismicio/client";
+import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 
 export type FormularProps = SliceComponentProps<Content.FormularSlice>;
