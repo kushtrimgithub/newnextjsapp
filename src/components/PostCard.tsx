@@ -1,6 +1,5 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicText } from "@prismicio/react";
-import { RichText } from "./RichText";
 import { Content } from "@prismicio/client";
 
 export const PostCard = ({
