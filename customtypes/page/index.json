@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "blog_cards": {
+              "type": "SharedSlice"
+            },
             "formular": {
               "type": "SharedSlice"
             }

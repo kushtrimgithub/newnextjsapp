@@ -21,6 +21,11 @@ export const PostCard = ({
               {data.headline}
             </h2>
           </div>
+          <div className="hover:opacity-75 duration-300 ease-in-out transition-all">
+            <h2 className="font-bold text-xl">
+              {data.headline}
+            </h2>
+          </div>
         </div>
       </div>
       <div className="border-b border-solid border-gray-200 w-full col-span-2" />

@@ -19,6 +19,13 @@
           "placeholder": ""
         }
       },
+      "headline": {
+        "type": "Text",
+        "config": {
+          "label": "Headline",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -30,11 +37,11 @@
           }
         }
       },
-      "headline": {
-        "type": "Text",
+      "author": {
+        "type": "Link",
         "config": {
-          "label": "Headline",
-          "placeholder": ""
+          "label": "Author",
+          "select": "document"
         }
       }
     },

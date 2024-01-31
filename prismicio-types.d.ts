@@ -166,6 +166,17 @@ interface BlogPostDocumentData {
   publication_date: prismic.DateField;
 
   /**
+   * Headline field in *Blog Post*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  headline: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Blog Post*
    *
    * - **Field Type**: Slice Zone
@@ -177,15 +188,15 @@ interface BlogPostDocumentData {
   slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>;
 
   /**
-   * Headline field in *Blog Post*
+   * Author field in *Blog Post*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.headline
+   * - **API ID Path**: blog_post.author
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  headline: prismic.KeyTextField /**
+  author: prismic.ContentRelationshipField /**
    * Meta Description field in *Blog Post*
    *
    * - **Field Type**: Text
@@ -311,7 +322,60 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = FormularSlice;
+/**
+ * Item in *Menu → Menu Items*
+ */
+export interface MenuDocumentDataMenuItemsItem {
+  /**
+   * Menu Link field in *Menu → Menu Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.menu_items[].menu_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu_link: prismic.LinkField;
+
+  /**
+   * Menu Text field in *Menu → Menu Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.menu_items[].menu_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  menu_text: prismic.KeyTextField;
+}
+
+/**
+ * Content for Menu documents
+ */
+interface MenuDocumentData {
+  /**
+   * Menu Items field in *Menu*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.menu_items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  menu_items: prismic.GroupField<Simplify<MenuDocumentDataMenuItemsItem>>;
+}
+
+/**
+ * Menu document from Prismic
+ *
+ * - **API ID**: `menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
+
+type PageDocumentDataSlicesSlice = BlogCardsSlice | FormularSlice;
 
 /**
  * Content for Page documents
@@ -377,7 +441,38 @@ export type AllDocumentTypes =
   | BlogDocument
   | BlogPostDocument
   | HomepageDocument
+  | MenuDocument
   | PageDocument;
+
+/**
+ * Default variation for BlogCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogCards*
+ */
+type BlogCardsSliceVariation = BlogCardsSliceDefault;
+
+/**
+ * BlogCards Shared Slice
+ *
+ * - **API ID**: `blog_cards`
+ * - **Description**: BlogCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlogCardsSlice = prismic.SharedSlice<
+  "blog_cards",
+  BlogCardsSliceVariation
+>;
 
 /**
  * Primary content in *Formular → Primary*
@@ -486,10 +581,16 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      MenuDocument,
+      MenuDocumentData,
+      MenuDocumentDataMenuItemsItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BlogCardsSlice,
+      BlogCardsSliceVariation,
+      BlogCardsSliceDefault,
       FormularSlice,
       FormularSliceDefaultPrimary,
       FormularSliceVariation,
