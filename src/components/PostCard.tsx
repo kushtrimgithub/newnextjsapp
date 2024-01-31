@@ -1,5 +1,8 @@
+// ./src/components/PostCard.tsx
+
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicText } from "@prismicio/react";
+import { RichText } from "./RichText";
 import { Content } from "@prismicio/client";
 
 export const PostCard = ({
@@ -27,7 +30,6 @@ export const PostCard = ({
             </h2>
           </div>
         </div>
-        <RichText field={data.description} />
       </div>
       <div className="border-b border-solid border-gray-200 w-full col-span-2" />
     </PrismicLink>
