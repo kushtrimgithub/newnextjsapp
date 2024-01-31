@@ -26,7 +26,7 @@ export const PostCard = ({
           </p>
           <div className="hover:opacity-75 duration-300 ease-in-out transition-all">
             <h2 className="font-bold text-xl">
-              <PrismicText field={data.title} />
+              {data.headline}
             </h2>
           </div>
         </div>
