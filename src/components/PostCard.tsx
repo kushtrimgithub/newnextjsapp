@@ -23,10 +23,11 @@ export const PostCard = ({
           </p>
           <div className="hover:opacity-75 duration-300 ease-in-out transition-all">
             <h2 className="font-bold text-xl">
-              {data.headline}
+              <PrismicText field={data.title} />
             </h2>
           </div>
         </div>
+        <RichText field={data.description} />
       </div>
       <div className="border-b border-solid border-gray-200 w-full col-span-2" />
     </PrismicLink>
