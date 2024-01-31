@@ -12,7 +12,6 @@ export const PostCard = ({
   return (
     <PrismicLink document={post} className="grid grid-cols-2 gap-10">
       <PrismicNextImage
-        field={data.featured_image}
         sizes="100vw"
         className="w-full max-w-sm max-h-60 rounded-xl object-cover"
       />
